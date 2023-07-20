@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mi Proyecto - {% block title %}{% endblock %}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        
+        .header {
+            text-align: center;
+            background-color: #333;
+            padding: 10px;
+        }
+        
+        .header img {
+            max-width: 350px; /* Establecemos un ancho máximo para el logotipo */
+        }
+        
+        .menu {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .menu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: inline-block;
+        }
+        
+        .menu ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        
+        .menu ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        .menu ul li a:hover {
+            color: #ffcc00;
+        }
+        
+        .content {
+            text-align: center;
+            margin-top: 30px;
+            border: 1px solid #ccc; /* Agregamos un borde para encuadrar el contenido */
+            padding: 20px; /* Agregamos un espacio interno para separar el contenido del borde */
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="https://www.untels.edu.pe/images/logo.png" alt="Logo de Mi Proyecto">
+    </div>
+    <div class="menu">
+        <ul>
+            <li><a href="{% url 'editoriales' %}">Editoriales</a></li>
+            <li><a href="{% url 'crear_editorial' %}">Crear Editorial</a></li>
+            <li><a href="{% url 'paises' %}">Paises</a></li>
+            <li><a href="{% url 'crear_pais' %}">Crear Pais</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
