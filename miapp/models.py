@@ -11,3 +11,15 @@ class Career(models.Model):
     def __str__(self):
         return self.name
 
+# models.py
+from django.db import models
+
+class Course(models.Model):
+    idcourse = models.AutoField(primary_key=True)
+    code = models.CharField(max_length=10)
+    name = models.CharField(max_length=100)
+    hour = models.IntegerField()
+    state = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.name

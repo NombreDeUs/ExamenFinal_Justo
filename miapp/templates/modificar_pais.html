@@ -1,25 +1,25 @@
 {% extends 'inicio.html' %}
-
-{% block title %}Agregar Pais{% endblock %}
+{% block title %}Modificar Pais{% endblock %}
 
 {% block content %}
 <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
     <div style="width: 20%;">
-        <h1>Agregar Pais</h1>
+        <h1>Modificar Pais</h1>
         <form method="post">
             {% csrf_token %}
             <label for="id_code" style="display: block; margin-bottom: 5px;">Código:</label>
-            <input type="text" name="code" id="id_code" style="width: 100%; padding: 5px; margin-bottom: 10px;">
+            <input type="text" name="code" id="id_code" value="{{ curso.code }}" style="width: 100%; padding: 5px; margin-bottom: 10px;">
             
             <label for="id_name" style="display: block; margin-bottom: 5px;">Nombre:</label>
-            <input type="text" name="name" id="id_name" style="width: 100%; padding: 5px; margin-bottom: 10px;">
+            <input type="text" name="name" id="id_name" value="{{ curso.name }}" style="width: 100%; padding: 5px; margin-bottom: 10px;">
             
             <label for="id_hour" style="display: block; margin-bottom: 5px;">Horas:</label>
-            <input type="number" name="hour" id="id_hour" style="width: 100%; padding: 5px; margin-bottom: 10px;">
- 
+            <input type="number" name="hour" id="id_hour" value="{{ curso.hour }}" style="width: 100%; padding: 5px; margin-bottom: 10px;">
+            
+        
             
             <label for="id_state" style="display: block; margin-bottom: 5px;">Estado:</label>
-            <input type="checkbox" name="state" id="id_state" style="margin-right: 5px;"><br>
+            <input type="checkbox" name="state" id="id_state" {% if curso.state %}checked{% endif %} style="margin-right: 5px;"><br>
             
             <input type="submit" value="Guardar" style="background-color: #4CAF50; color: #fff; padding: 10px 15px; border: none; cursor: pointer;">
         </form>

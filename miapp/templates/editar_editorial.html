@@ -2,12 +2,12 @@
 {% extends 'inicio.html' %}
 
 
-{% block title %}Editar Carrera{% endblock %}
+{% block title %}Editar Editorial{% endblock %}
 
 {% block content %}
-<div style="display: flex; justify-content: center; align-items: center; height: 30vh;">
+<div style="display: flex; justify-content: center; align-items: center; height: 100%vh;">
     <div style="width: 20%;">
-    <h1>Editar Carrera</h1>
+    <h1>Editar Editorial</h1>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <label for="id_name" style="display: block; margin-bottom: 5px;">Nombre:</label>

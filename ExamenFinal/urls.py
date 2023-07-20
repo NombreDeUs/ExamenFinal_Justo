@@ -21,13 +21,18 @@ from miapp import views
 
 urlpatterns = [
     path('', views.inicio, name='inicio'),
-    path('paises/', views.paises, name='paises'),
-    path('crear_pais/', views.crear_pais, name='crear_pais'),
+
 
     path('editoriales/', views.listar_editoriales, name='editoriales'),
     path('crear_editorial/', views.crear_editorial, name='crear_editorial'),
     path('eliminar_editorial/<int:carrera_id>/', views.eliminar_editorial, name='eliminar_editorial'),
     path('editar_editorial/<int:carrera_id>/', views.editar_editorial, name='editar_editorial'),  # Verifica esta línea
+
+    path('paises/', views.listar_paises, name='paises'),
+    path('crear_pais/', views.crear_pais, name='crear_pais'),
+    path('eliminar_pais/<int:idcurso>/', views.eliminar_pais, name='eliminar_pais'),
+    path('modificar_pais/<int:idcurso>/', views.modificar_pais, name='modificar_pais'),
+
 ]
 from django.conf import settings
 from django.conf.urls.static import static
