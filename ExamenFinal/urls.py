@@ -18,13 +18,21 @@ Including another URLconf
 from django.urls import path
 from miapp import views
 
+
 urlpatterns = [
-    #path('', views.inicio, name='inicio'),
     path('', views.inicio, name='inicio'),
-    path('editoriales/', views.editoriales, name='editoriales'),
-    path('crear_editorial/', views.crear_editorial, name='crear_editorial'),
     path('paises/', views.paises, name='paises'),
     path('crear_pais/', views.crear_pais, name='crear_pais'),
+
+    path('editoriales/', views.listar_editoriales, name='editoriales'),
+    path('crear_editorial/', views.crear_editorial, name='crear_editorial'),
+    path('eliminar_editorial/<int:carrera_id>/', views.eliminar_editorial, name='eliminar_editorial'),
+    path('editar_editorial/<int:carrera_id>/', views.editar_editorial, name='editar_editorial'),  # Verifica esta línea
 ]
+from django.conf import settings
+from django.conf.urls.static import static
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

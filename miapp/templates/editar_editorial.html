@@ -1,26 +1,26 @@
+<!-- editar_carrera.html -->
 {% extends 'inicio.html' %}
 
-<!-- agregar_carrera.html -->
 
-{% block title %}Agregar Carrera{% endblock %}
+{% block title %}Editar Carrera{% endblock %}
 
 {% block content %}
 <div style="display: flex; justify-content: center; align-items: center; height: 30vh;">
     <div style="width: 20%;">
-    <h1>Agregar Carrera</h1>
+    <h1>Editar Carrera</h1>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <label for="id_name" style="display: block; margin-bottom: 5px;">Nombre:</label>
-        <input type="text" name="name" id="id_name" style="width: 100%; padding: 5px; margin-bottom: 10px;">
+        <input type="text" name="name" id="id_name" value="{{ editorial.name }}" style="width: 100%; padding: 5px; margin-bottom: 10px;">
         
         <label for="id_shortname" style="display: block; margin-bottom: 5px;">Nombre corto:</label>
-        <input type="text" name="shortname" id="id_shortname" style="width: 100%; padding: 5px; margin-bottom: 10px;">
+        <input type="text" name="shortname" id="id_shortname" value="{{ editorial.shortname }}" style="width: 100%; padding: 5px; margin-bottom: 10px;">
         
         <label for="id_image" style="display: block; margin-bottom: 5px;">Imagen:</label>
         <input type="file" name="image" id="id_image" style="width: 100%; padding: 5px; margin-bottom: 10px;">
         
         <label for="id_state" style="display: block; margin-bottom: 5px;">Estado:</label>
-        <input type="checkbox" name="state" id="id_state" style="margin-right: 5px;"><br>
+        <input type="checkbox" name="state" id="id_state" {% if editorial.state %}checked{% endif %} style="margin-right: 5px;"><br>
         
         <input type="submit" value="Guardar" style="background-color: #4CAF50; color: #fff; padding: 10px 15px; border: none; cursor: pointer;">
     </form>

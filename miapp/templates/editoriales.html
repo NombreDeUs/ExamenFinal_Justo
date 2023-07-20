@@ -1,7 +1,42 @@
 {% extends 'inicio.html' %}
 
-{% block title %}Listado de Editoriales{% endblock %}
+<!-- carreras.html -->
+
+{% block title %}Listado de Carreras{% endblock %}
 
 {% block content %}
-    <h1>Listado de Editoriales</h1>
+<div style="display: flex; justify-content: center; align-items: center; height: 20vh;">
+    <div style="width: 60%;">
+    <h1>Listado de Carreras</h1>
+    <table style="width: 100%; border-collapse: collapse;">
+        <thead>
+            <tr style="background-color: #f2f2f2;">
+                <th style="padding: 10px; border: 1px solid #ccc;">ID</th>
+                <th style="padding: 10px; border: 1px solid #ccc;">Nombre</th>
+                <th style="padding: 10px; border: 1px solid #ccc;">Nombre corto</th>
+                <th style="padding: 10px; border: 1px solid #ccc;">Imagen</th>
+                <th style="padding: 10px; border: 1px solid #ccc;">Estado</th>
+                <th style="padding: 10px; border: 1px solid #ccc;">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for editorial in editoriales %}
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ccc;">{{ editorial.idcareer }}</td>
+                    <td style="padding: 10px; border: 1px solid #ccc;">{{ editorial.name }}</td>
+                    <td style="padding: 10px; border: 1px solid #ccc;">{{ editorial.shortname }}</td>
+                    <td style="padding: 10px; border: 1px solid #ccc;"><img src="{{ editorial.image.url }}" alt="{{ editorial.name }}" width="50"></td>
+                    <td style="padding: 10px; border: 1px solid #ccc;">{% if carrera.state %}Activa{% else %}Inactiva{% endif %}</td>
+                    <td style="padding: 10px; border: 1px solid #ccc;">
+                        <a href="{% url 'editar_editorial' editorial.idcareer %}">Editar</a>
+                        <a href="{% url 'eliminar_editorial' editorial.idcareer %}">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+</div
+    
 {% endblock %}
